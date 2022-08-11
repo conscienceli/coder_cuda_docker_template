@@ -1,0 +1,25 @@
+FROM jconlee/coder-cuda:base
+
+# install a specific code-server version
+RUN curl -fsSL https://code-server.dev/install.sh | sh -s --
+
+# pre-install versions
+# RUN code-server --install-extension ms-vscode-remote.vscode-remote-extensionpack
+RUN code-server --install-extension formulahendry.auto-close-tag
+# RUN code-server --install-extension thekalinga.bootstrap4-vscode
+RUN code-server --install-extension naumovs.color-highlight
+# RUN code-server --install-extension VisualStudioExptTeam.vscodeintellicode
+RUN code-server --install-extension ms-toolsai.jupyter
+RUN code-server --install-extension ms-toolsai.jupyter-keymap
+RUN code-server --install-extension DavidAnson.vscode-markdownlint
+RUN code-server --install-extension christian-kohler.path-intellisense
+RUN code-server --install-extension esbenp.prettier-vscode
+# RUN code-server --install-extension ms-python.vscode-pylance
+RUN code-server --install-extension ms-python.python
+RUN code-server --install-extension vscode-icons-team.vscode-icons
+RUN code-server --install-extension streetsidesoftware.code-spell-checker
+RUN code-server --install-extension donjayamanne.githistory
+RUN code-server --install-extension ms-toolsai.jupyter-renderers
+RUN code-server --install-extension shd101wyy.markdown-preview-enhanced
+# RUN code-server --install-extension ryu1kn.partial-diff
+RUN code-server --install-extension tomoki1207.pdf
