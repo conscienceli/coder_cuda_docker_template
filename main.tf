@@ -119,6 +119,9 @@ resource "docker_container" "workspace" {
   hostname = lower(data.coder_workspace.me.name)
   dns      = ["1.1.1.1"]
   gpus = "all"
+  memory = 131072
+  shm_size = 131072
+  publish_all_ports = true
   # Use the docker gateway if the access URL is 127.0.0.1
   command = [
     "sh", "-c",
