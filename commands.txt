@@ -1,0 +1,10 @@
+vim 1.Dockerfile_base
+docker build -f 1.Dockerfile_base -t jconlee/coder-cuda:base ./
+docker push jconlee/coder-cuda:base
+docker build -f 2.Dockerfile_vs -t jconlee/coder-cuda:vs ./
+docker push jconlee/coder-cuda:vs
+docker build -f 3.Dockerfile_vs_env -t jconlee/coder-cuda:vs_env ./
+docker push jconlee/coder-cuda:vs_env
+coder templates list
+coder templates delete docker
+coder templates create
