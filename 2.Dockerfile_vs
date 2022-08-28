@@ -3,23 +3,34 @@ FROM jconlee/coder-cuda:base
 # install a specific code-server version
 RUN curl -fsSL https://code-server.dev/install.sh | sh -s --
 
+ENV EXTENSIONS_GALLERY='{\
+                "nlsBaseUrl": "https://www.vscode-unpkg.net/_lp/",\
+                "serviceUrl": "https://marketplace.visualstudio.com/_apis/public/gallery",\
+                "cacheUrl": "https://vscode.blob.core.windows.net/gallery/index",\
+                "itemUrl": "https://marketplace.visualstudio.com/items",\
+                "publisherUrl": "https://marketplace.visualstudio.com/publishers",\
+                "resourceUrlTemplate": "https://{publisher}.vscode-unpkg.net/{publisher}/{name}/{version}/{path}",\
+                "controlUrl": "https://az764295.vo.msecnd.net/extensions/marketplace.json",\
+                "recommendationsUrl": "https://az764295.vo.msecnd.net/extensions/workspaceRecommendations.json.gz"\
+        }'
+
 # pre-install versions
-# RUN code-server --install-extension ms-vscode-remote.vscode-remote-extensionpack
+RUN code-server --install-extension ms-vscode-remote.vscode-remote-extensionpack
 RUN code-server --install-extension formulahendry.auto-close-tag
-# RUN code-server --install-extension thekalinga.bootstrap4-vscode
+RUN code-server --install-extension thekalinga.bootstrap4-vscode
 RUN code-server --install-extension naumovs.color-highlight
-# RUN code-server --install-extension VisualStudioExptTeam.vscodeintellicode
+RUN code-server --install-extension VisualStudioExptTeam.vscodeintellicode
 RUN code-server --install-extension ms-toolsai.jupyter
 RUN code-server --install-extension ms-toolsai.jupyter-keymap
 RUN code-server --install-extension DavidAnson.vscode-markdownlint
 RUN code-server --install-extension christian-kohler.path-intellisense
 RUN code-server --install-extension esbenp.prettier-vscode
-# RUN code-server --install-extension ms-python.vscode-pylance
+RUN code-server --install-extension ms-python.vscode-pylance
 RUN code-server --install-extension ms-python.python
 RUN code-server --install-extension vscode-icons-team.vscode-icons
 RUN code-server --install-extension streetsidesoftware.code-spell-checker
 RUN code-server --install-extension donjayamanne.githistory
 RUN code-server --install-extension ms-toolsai.jupyter-renderers
 RUN code-server --install-extension shd101wyy.markdown-preview-enhanced
-# RUN code-server --install-extension ryu1kn.partial-diff
+RUN code-server --install-extension ryu1kn.partial-diff
 RUN code-server --install-extension tomoki1207.pdf
