@@ -1,3 +1,13 @@
+curl -fsSL https://coder.com/install.sh | sh -s -- --dry-run
+curl -fsSL https://coder.com/install.sh | sh
+which coder
+sudo journalctl -u coder.service -b
+sudo vim /etc/coder.d/coder.env
+sudo systemctl restart coder
+coder login  https://coding.liangzhili.com
+coder template init
+sudo usermod -aG docker coder
+
 vim 1.Dockerfile_base
 docker build -f 1.Dockerfile_base -t jconlee/coder-cuda:base ./
 docker push jconlee/coder-cuda:base
