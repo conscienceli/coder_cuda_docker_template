@@ -5,6 +5,7 @@ sudo journalctl -u coder.service -b
 sudo vim /etc/coder.d/coder.env
 sudo systemctl restart coder
 coder login  https://coding.liangzhili.com
+# Select a docker template and paste contents from main file
 coder template init
 sudo usermod -aG docker coder
 
@@ -18,3 +19,9 @@ docker push jconlee/coder-cuda:vs_env
 coder templates list
 coder templates delete docker
 coder templates create
+
+
+# Relocating docker root directory
+https://www.ibm.com/docs/en/z-logdata-analytics/5.1.0?topic=compose-relocating-docker-root-directory
+# Install nvidia-docker2
+https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html
