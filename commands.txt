@@ -1,5 +1,10 @@
-curl -fsSL https://coder.com/install.sh | sh -s -- --dry-run
-curl -fsSL https://coder.com/install.sh | sh
+rm -rf ~/.cache/coder ~/.config/coderv2
+sudo rm -Rf /home/coder/.cache/coder /home/coder/.config/coderv2
+sudo apt remove coder
+sudo rm /etc/coder.d/coder.env
+
+curl -fsSL https://coder.com/install.sh | sh -s -- --dry-run --version 0.13.1
+curl -fsSL https://coder.com/install.sh | sh -s -- --version 0.13.1
 which coder
 sudo journalctl -u coder.service -b
 sudo vim /etc/coder.d/coder.env
